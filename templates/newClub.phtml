@@ -1,0 +1,32 @@
+<?php
+require_once 'templates/layout/header.phtml';
+?>
+
+<h2>Añadiendo un nuevo club</h2>
+<p>¿Pensas que falta algun club?. Logico, solamente pusimos el BIG SIX, los 6 grandes ingleses, con esta funcion vas a poder agregar a tu equipo favorito</p>
+
+<div class="column">
+
+    <form method='POST'>
+
+        <label>Nombre:</label>
+        <input type='text' name='nameClub' required>
+
+        <label>Año de fundacion:</label>
+        <input type='number' name='foundation' required>
+
+        <label>Estadio:</label>
+        <input type='text' name='stadium' required>
+
+        <label>Logo:</label>
+        <input type="text" name="badge" required>
+
+        <button type='submit' class="btn btn-light">Nuevo Club</button>
+
+    </form>
+</div>
+
+
+<?php
+
+require_once 'templates/layout/footer.phtml';

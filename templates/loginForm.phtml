@@ -1,0 +1,17 @@
+<?php require_once "templates/layout/header.phtml"; ?>
+
+<div class="formLogin">
+    <h1>Inicio de sesion</h1>
+    <p class="lead">Para realizar algunas operaciones vas a tener que verificar tu cuenta</p>
+    <form class="form-login" method="POST">
+        <label>Nombre de Usuario:</label>
+        <input type="text" name="username" required>
+        <label>Contraseña:</label>
+        <input type="password" name="password" required>
+        <button type="submit" id="btn-login">Log In</button>
+    </form>
+
+
+</div>
+
+<?php require_once "templates/layout/footer.phtml"; ?>

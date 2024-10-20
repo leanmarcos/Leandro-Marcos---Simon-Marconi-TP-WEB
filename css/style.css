@@ -1,0 +1,184 @@
+/* BODY */
+body {
+    margin: 0px;
+}
+
+/* HEADER */
+
+header {
+    display: flex;
+    padding: 15px;
+    color: white;
+    background-color: rgb(22, 0, 32);
+    justify-content: space-evenly;
+    align-items: center;
+    font-style: italic;
+    width: 100%;
+}
+
+.header-principal {
+    display: flex;
+    align-items: center;
+}
+
+.sign {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+.sign>ul>li {
+    list-style: none;
+}
+
+#sign-in,
+#sign-up {
+    color: white;
+    text-decoration: none;
+}
+
+#logo {
+    height: 100px;
+    width: 100px;
+}
+
+/* FOOTER */
+footer {
+    background-color: black;
+    color: grey;
+    width: 100%;
+    padding: 20px;
+    border-top: 3px solid rgb(161, 11, 231);
+}
+
+
+.footer-separation {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.li-footer {
+    list-style: none;
+}
+
+#footer-copyright {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+
+}
+
+/* Introduccion del HOME */
+#intro,
+#best-players,
+#big6 {
+    color: rgb(22, 0, 32);
+    font-weight: bold;
+    margin: 5px;
+    border-bottom: 1px solid rgb(22, 0, 32);
+    text-transform: uppercase;
+    font-style: italic;
+}
+
+.players,
+.teams,
+.intro,
+.playersInTeam {
+    margin: 10px;
+    padding: 15px;
+    margin-left: 15px;
+    margin-right: 15px;
+}
+
+.players>table>thead>tr>td,
+
+.players>table>tbody>tr>td,
+
+.teams>table>thead>tr>td,
+
+.teams>table>tbody>tr>td {
+    border: 1px solid black;
+    text-align: center;
+}
+
+.players>table>thead,
+.teams>table>thead {
+    background-color: rgb(22, 0, 32);
+    color: white;
+}
+
+.buttonsHome {
+    background-color: white;
+    color: rgb(22, 0, 32);
+    border: 1px solid white;
+}
+
+.buttonsHome>a {
+    color: black;
+    text-decoration: none;
+}
+
+/* SpecificPlayer */
+.name,
+.Specific-Player-Club {
+    display: flex;
+    justify-content: center;
+    border-bottom: 1px solid rgb(22, 0, 32);
+    border-top: 1px solid rgb(22, 0, 32);
+}
+
+.division-specificplayer {
+    display: flex;
+}
+
+.edad-club>li,
+.valor-pos>li {
+    list-style: none;
+}
+
+/* LOGIN */
+.formLogin {
+    display: grid;
+    place-items: center;
+    border: 1px solid rgb(22, 0, 32);
+    margin: 15px;
+    padding: 5px;
+    height: 40%;
+    width: 65%;
+}
+
+/* ERROR (pagina)*/
+
+.error-pag,
+.deleteplayer,
+.div-not-loged {
+    display: grid;
+    place-items: center;
+    margin: 20px;
+    padding: 2px;
+}
+
+
+#btn-inicio,
+#btn-login {
+    background-color: lightblue;
+    border-radius: 5px;
+    height: 50px;
+    width: 100px;
+    margin: 5px;
+    border: solid lightblue;
+    align-items: center;
+}
+
+
+#btn-a-home {
+    text-decoration: none;
+    color: black;
+}
+
+#imagen-error,
+#cantona,
+#notloged {
+    height: 340px;
+    width: 340px;
+}

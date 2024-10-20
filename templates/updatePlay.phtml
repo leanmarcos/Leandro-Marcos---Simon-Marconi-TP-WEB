@@ -1,0 +1,31 @@
+<?php require_once 'templates/layout/header.phtml'; ?>
+
+<div class="m-5">
+    <h1>Editando jugadores</h1>
+    <p>Con esta funcionalidad, vas a poder editar los valores de un jugador ya existente</p>
+</div>
+
+
+<form method='POST' class="m-5">
+    <label>Nombre:</label>
+    <input type='text' name='nameplayer' required>
+    <label>Edad:</label>
+    <input type='number' name='playerAge' required>
+    <label>Club:</label>
+    <select name="playerClub" required>
+        <option value=""></option>
+        <?php foreach ($clubOptions as $clubs): ?>
+            <option value="<?php echo $clubs->id_equipo ?>"><?php echo "$clubs->id_equipo"; ?></option>
+        <?php endforeach; ?>
+    </select>
+    <label>Valor:</label>
+    <input type='text' name='playerValue' required>
+    <label>Posicion:</label>
+    <input type='text' name='playerPosition' required>
+
+
+    <button type='submit' class="btn btn-light">Editar jugador</button>
+
+</form>
+
+<?php require_once 'templates/layout/footer.phtml'; ?>

@@ -1,0 +1,36 @@
+<?php
+require_once 'templates/layout/header.phtml';
+?>
+
+<h2>Ficha Tecnica</h2>
+<div class="name">
+    <h2><?php echo $player->nombre ?></h2>
+
+</div>
+
+<div class="Specific-Player-Club">
+    <h2><?php echo "$playerClub->nombre" ?></h2>
+</div>
+
+<div class="division-specificplayer">
+
+    <div class="edad-club">
+        <ul>
+            <li class="list-group-item list-group-item-light">Edad: <?php echo  $player->edad ?></li>
+            <li class="list-group-item list-group-item-light">Club: <?php echo $playerClub->nombre ?></li>
+        </ul>
+    </div>
+    <div class="valor-pos">
+        <ul>
+            <li class="list-group-item list-group-item-light">Valor de Mercado: <?php echo $player->valor_de_mercado ?></li>
+            <li class="list-group-item list-group-item-light">Posicion: <?php echo $player->posicion ?></li>
+        </ul>
+    </div>
+</div>
+
+
+
+
+<?php
+require_once "templates/layout/footer.phtml";
+?>

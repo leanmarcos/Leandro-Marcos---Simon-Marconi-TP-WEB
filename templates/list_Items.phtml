@@ -1,0 +1,43 @@
+<?php require_once "templates/layout/header.phtml" ?>
+
+<main>
+    <div class='intro'>
+        <div>
+            <h2 id='intro'>PremStats</h2>
+            <p class="lead">Bienvenidos a PremStats, tu fuente definitiva sobre la liga de fútbol más emocionante del mundo!</p>
+        </div>
+    </div>
+
+    <div class="players">
+        <h2 id='best-players'>Los mejores jugadores</h2>
+        <p class="lead">A continuación se muestra una lista de los jugadores:</p>
+
+        <table>
+            <thead>
+                <tr>
+                    <td>Nombre</td>
+                    <td>Edad</td>
+                    <td>Club</td>
+                    <td>Valor de mercado</td>
+                    <td>Posición</td>
+                    <td>Acciones</td>
+                </tr>
+            </thead>
+            <tbody>
+
+                <?php foreach ($listOfItems as $player): ?>
+                    <tr>
+                        <td class="data-players-home"><a href="player/<?php echo $player->id_jugador; ?>"><?php echo $player->nombre; ?></a></td>
+                        <td><?php echo "$player->edad" ?></td>
+                        <td><?php echo "$player->club" ?></td>
+                        <td><?php echo "$player->valor_de_mercado" ?></td>
+                        <td><?php echo "$player->posicion" ?></td>
+                        <td><button class="buttonsHome"><a href="editplayer/<?php echo $player->id_jugador ?>">Editar</a></button><button class="buttonsHome"><a href="deleteplayer/<?php echo $player->id_jugador ?>">Eliminar</a></button></td>
+                    </tr>
+                <?php endforeach; ?>
+            </tbody>
+        </table>
+
+        <h4>¿Pensas que falta alguno?</h4>
+        <p class="lead"><a href="newplayer" class="link-underline-primary">Aca</a> podes agregarlo, pero solamente si sos administrador de la pagina</p>
+    </div>

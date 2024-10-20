@@ -1,0 +1,26 @@
+<?php
+require_once 'templates/layout/header.phtml';
+?>
+
+<div class="m-5">
+    <h2>Editando un club ya existente</h2>
+    <p>¿Pensas que hay algo erroneo en la info de un club?. Con esta funcion vas a poder editar este equipo y poner los valores correctos</p>
+</div>
+
+
+<form method='POST' class="m-5">
+    <label>Nombre:</label>
+    <input type='text' name='nameClub' required>
+    <label>Año de fundacion:</label>
+    <input type='number' name='foundation' required>
+    <label>Estadio:</label>
+    <input type='text' name='stadium' required>
+    <label>Logo:</label>
+    <input type="text" name="badge">
+    <button type='submit' class="btn btn-light">Editar club</button>
+
+</form>
+
+<?php
+
+require_once 'templates/layout/footer.phtml';

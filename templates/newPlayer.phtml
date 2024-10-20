@@ -1,0 +1,39 @@
+<?php
+require_once 'templates/layout/header.phtml';
+?>
+<div class="m-5">
+    <h2>Añadiendo un nuevo jugador</h2>
+    <p>Con esta funcion, se va a poder añadir un nuevo jugador a la base de datos</p>
+</div>
+
+
+<form method='POST' class="m-3">
+
+    <div class="name-age">
+        <label>Nombre:</label>
+        <input type='text' name='nameplayer' required>
+        <label>Edad:</label>
+        <input type='number' name='playerAge' required>
+
+        <label>Club:</label>
+        <select name="playerClub" required>
+            <option value=""></option>
+            <?php foreach ($clubOptions as $clubs): ?>
+                <option value="<?php echo $clubs->id_equipo ?>"><?php echo "$clubs->nombre"; ?></option>
+            <?php endforeach; ?>
+        </select>
+
+
+        <label>Valor:</label>
+        <input type='text' name='playerValue' required>
+        <label>Posicion:</label>
+        <input type='text' name='playerPosition' required>
+        <button type='submit' class="btn btn-light">Nuevo Jugador</button>
+    </div>
+
+
+</form>
+
+<?php
+
+require_once 'templates/layout/footer.phtml';

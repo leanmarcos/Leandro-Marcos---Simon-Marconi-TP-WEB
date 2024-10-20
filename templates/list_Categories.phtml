@@ -1,0 +1,33 @@
+<?php require_once "templates/layout/header.phtml" ?>
+
+<div class="p-4">
+    <h2 id='big6'>¿Cuales equipos son los "grandes" de la Liga?</h2>
+    <p class="lead">Los equipos grandes de Inglaterra, también conocidos como los "Big Six", son clubes con una rica historia y un gran impacto tanto a nivel nacional como internacional. Estos equipos incluyen al Manchester United, Liverpool, Manchester City, Chelsea, Arsenal y Tottenham Hotspur. Han dominado la Premier League y competiciones europeas, atrayendo a jugadores de élite y siendo seguidos por millones de aficionados en todo el mundo.</p>
+    <p class="lead">Cada club tiene su propio legado: el Manchester United con su gloriosa era bajo Sir Alex Ferguson, el Liverpool con su estatus legendario en Europa, y el Manchester City con su ascenso meteórico en la última década. Chelsea ha sido un contendiente constante con éxitos recientes en Champions League, mientras que Arsenal y Tottenham aportan tradición e historia al fútbol inglés, aunque con menos títulos recientes. Estos equipos son el corazón del fútbol en Inglaterra y representan el nivel más alto de competitividad en el deporte.</p>
+    <div class="teams">
+        <table>
+            <thead>
+                <tr>
+                    <td>Nombre</td>
+                    <td>Fundacion</td>
+                    <td>Estadio</td>
+                    <td>Acciones</td>
+                </tr>
+            </thead>
+            <tbody>
+                <?php foreach ($listOfTeams as $team): ?>
+                    <tr>
+                        <td class="data-players-home"><a href="team/<?php echo $team->id_equipo; ?>"><?php echo $team->nombre; ?></a></td>
+                        <td><?php echo "$team->fundacion" ?></td>
+                        <td><?php echo "$team->estadio" ?></td>
+                        <td><button class="buttonsHome"><a href="editclub/<?php echo $team->id_equipo ?>">Editar</a></button><button class="buttonsHome"><a href="deleteclub/<?php echo $team->id_equipo ?>">Eliminar</a></button></td>
+                    </tr>
+                <?php endforeach; ?>
+            </tbody>
+        </table>
+    </div>
+
+</div>
+</main>
+
+<?php require_once "templates/layout/footer.phtml" ?>

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 17-09-2024 a las 01:22:30
+-- Tiempo de generación: 18-10-2024 a las 23:25:23
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.2.12
 
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Base de datos: `TPWEBII`
+-- Base de datos: `database_epl`
 --
 
 -- --------------------------------------------------------
@@ -31,20 +31,21 @@ CREATE TABLE `equipos` (
   `id_equipo` int(11) NOT NULL,
   `nombre` varchar(45) NOT NULL,
   `fundacion` int(11) NOT NULL,
-  `estadio` varchar(55) NOT NULL
+  `estadio` varchar(55) NOT NULL,
+  `logo` varchar(150) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Volcado de datos para la tabla `equipos`
 --
 
-INSERT INTO `equipos` (`id_equipo`, `nombre`, `fundacion`, `estadio`) VALUES
-(1, 'Arsenal', 1886, 'Emirates Stadium'),
-(2, 'Chelsea', 1905, 'Stamford Bridge'),
-(3, 'Liverpool', 1892, 'Anfield'),
-(4, 'Manchester City', 1880, 'Eithad Stadium'),
-(5, 'Manchester United', 1902, 'Old Trafford'),
-(6, 'Totthenham', 1882, 'Totthenham Hotspur Stadium');
+INSERT INTO `equipos` (`id_equipo`, `nombre`, `fundacion`, `estadio`, `logo`) VALUES
+(1, 'Arsenal', 1886, 'Emirates Stadium', 'https://cdn.sofifa.net/meta/team/19/120.png'),
+(4, 'Manchester City', 1880, 'Eithad Stadium', 'https://cdn.sofifa.net/meta/team/9/120.png'),
+(5, 'Liverpool', 1892, 'Anfield', 'https://cdn.sofifa.net/meta/team/8/120.png'),
+(6, 'Tottenham', 1880, 'Tottenham Hotspur Stadium', 'https://cdn.sofifa.net/meta/team/6/120.png'),
+(14, 'Manchester United', 1878, 'Old Trafford', 'https://cdn.sofifa.net/meta/team/14/120.png'),
+(22, 'Chelsea', 1905, 'Stamford Bridge', 'https://cdn.sofifa.net/meta/team/18/120.png');
 
 -- --------------------------------------------------------
 
@@ -56,7 +57,7 @@ CREATE TABLE `jugadores` (
   `id_jugador` int(11) NOT NULL,
   `nombre` varchar(45) NOT NULL,
   `edad` int(11) NOT NULL,
-  `club` varchar(55) NOT NULL,
+  `club` int(11) NOT NULL,
   `valor_de_mercado` varchar(40) NOT NULL,
   `posicion` varchar(35) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
@@ -66,14 +67,32 @@ CREATE TABLE `jugadores` (
 --
 
 INSERT INTO `jugadores` (`id_jugador`, `nombre`, `edad`, `club`, `valor_de_mercado`, `posicion`) VALUES
-(1, 'Mohamed Salah', 32, 'Liverpool', '55M', 'Delantero'),
-(2, 'Kevin De Bruyne ', 33, 'Manchester City', '50M', 'Mediocampista'),
-(3, 'Erling Braut Haaland', 24, 'Manchester City', '180M', 'Delantero'),
-(4, 'Martin Odegaard', 25, 'Arsenal', '110M', 'Mediocampista'),
-(5, 'Rodri', 28, 'Manchester City', '130M', 'Mediocampista'),
-(6, 'Virgil Van Dijk', 33, 'Liverpool', '30M', 'Defensor'),
-(7, 'Cole Palmer', 22, 'Chelsea', '80M', 'Mediocampista'),
-(8, 'Cristian Romero', 26, 'Tottenham ', '65M', 'Defensor');
+(1, 'Mohamed Salah', 32, 5, '55M', 'Delantero'),
+(4, 'Martin Odegaard', 25, 1, '110M', 'Mediocampista'),
+(5, 'Rodri', 28, 4, '130M', 'Mediocampista'),
+(6, 'Virgil Van Dijk', 33, 5, '30M', 'Defensor'),
+(8, 'Cristian Romero', 26, 6, '65M', 'Defensor'),
+(35, 'Lisandro Martinez', 25, 14, '50M', 'Defensor'),
+(36, 'Cole Palmer', 22, 22, '55M', 'Mediocampista');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `user`
+--
+
+CREATE TABLE `user` (
+  `id_user` int(11) NOT NULL,
+  `username` varchar(30) NOT NULL,
+  `password` char(60) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `user`
+--
+
+INSERT INTO `user` (`id_user`, `username`, `password`) VALUES
+(1, 'webadmin', '$2y$10$lUdQYKlptAUeD5tnFZ6G1.WS.eBP6V5o.Eh/QxLirCq4eTxE41LWW');
 
 --
 -- Índices para tablas volcadas
@@ -89,7 +108,15 @@ ALTER TABLE `equipos`
 -- Indices de la tabla `jugadores`
 --
 ALTER TABLE `jugadores`
-  ADD PRIMARY KEY (`id_jugador`);
+  ADD PRIMARY KEY (`id_jugador`),
+  ADD KEY `club` (`club`),
+  ADD KEY `club_2` (`club`);
+
+--
+-- Indices de la tabla `user`
+--
+ALTER TABLE `user`
+  ADD PRIMARY KEY (`id_user`);
 
 --
 -- AUTO_INCREMENT de las tablas volcadas
@@ -99,23 +126,29 @@ ALTER TABLE `jugadores`
 -- AUTO_INCREMENT de la tabla `equipos`
 --
 ALTER TABLE `equipos`
-  MODIFY `id_equipo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id_equipo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 
 --
 -- AUTO_INCREMENT de la tabla `jugadores`
 --
 ALTER TABLE `jugadores`
-  MODIFY `id_jugador` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id_jugador` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
+
+--
+-- AUTO_INCREMENT de la tabla `user`
+--
+ALTER TABLE `user`
+  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- Restricciones para tablas volcadas
 --
 
 --
--- Filtros para la tabla `equipos`
+-- Filtros para la tabla `jugadores`
 --
-ALTER TABLE `equipos`
-  ADD CONSTRAINT `equipos_ibfk_1` FOREIGN KEY (`id_equipo`) REFERENCES `jugadores` (`id_jugador`) ON DELETE CASCADE ON UPDATE CASCADE;
+ALTER TABLE `jugadores`
+  ADD CONSTRAINT `jugadores_ibfk_1` FOREIGN KEY (`club`) REFERENCES `equipos` (`id_equipo`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
